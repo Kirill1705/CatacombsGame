@@ -32,7 +32,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>/home/kirill/servers/minigame_service/plugins</outputDirectory>
+              <outputDirectory>/home/kirill/servers/catacombs_test/plugins</outputDirectory>
               <resources>
                 <resource>
                   <directory>${project.build.directory}</directory>
@@ -79,6 +79,20 @@
       <resource>
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
+        <excludes>
+          <exclude>**/*.nbt</exclude>
+          <exclude>**/*.schem</exclude>
+          <exclude>**/*.png</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*.nbt</include>
+          <include>**/*.schem</include>
+          <include>**/*.png</include>
+        </includes>
       </resource>
     </resources>
   </build>
@@ -112,11 +126,13 @@
       <groupId>ru.vikhrenko</groupId>
       <artifactId>MinigameService</artifactId>
       <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>thor</groupId>
       <artifactId>CatacombsGenerator</artifactId>
       <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.dataformat</groupId>

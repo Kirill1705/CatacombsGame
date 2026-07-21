@@ -1,8 +1,14 @@
 name: CatacombsGame
 version: '${version}'
-
 main: ru.vikhrenko.catacombsGame.CatacombsGame
-bootstrapper: ru.vikhrenko.catacombsGame.CatacombsGameBootstrap
-loader: ru.vikhrenko.catacombsGame.CatacombsGameLoader
 api-version: '26.1.2'
-load: POSTWORLD
+
+dependencies:
+  server:
+    CatacombsGenerator:
+      required: true
+      load: BEFORE
+
+    MinigameService:
+      required: true
+      load: BEFORE
