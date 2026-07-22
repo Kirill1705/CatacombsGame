@@ -12,4 +12,10 @@ public interface MinecraftAdapter {
     void titleGameResult(UUID playerId, int place);
 
     void drawScoreboard(UUID playerId, Duration remainTime, List<UUID> players);
+
+    void setNightVision(UUID playerId);
+
+    boolean isDead(UUID playerId);
+
+    void makeObserverAndSetSpawnPoint(UUID playerId);
 }

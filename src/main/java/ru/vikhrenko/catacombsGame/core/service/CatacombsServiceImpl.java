@@ -26,8 +26,7 @@ public class CatacombsServiceImpl implements CatacombsService {
     @Override
     public void joinPlayerEvent(MinigameDto minigameDto, UUID playerId) {
         structuresManager.placeLobbyIfNotExists(minigameDto.positionDto());
-        var position = minigameDto.positionDto();
-        minecraftAdapter.teleport(new PositionDto(position.x(), position.y(), position.z()), playerId);
+        structuresManager.tptoLobby(minigameDto.positionDto(), playerId);
     }
 
     @Override
@@ -43,7 +42,12 @@ public class CatacombsServiceImpl implements CatacombsService {
     @Override
     public void onRemoveEvent(MinigameDto minigame, UUID playerId) {
         removeTask(playerId);
-        serviceAdapter.wipe(playerId);
+        if (minecraftAdapter.isDead(playerId)) {
+
+        }
+        else {
+            serviceAdapter.wipe(playerId);
+        }
         if (minigame.playerIds().size() == 1) {
             win(minigame.playerIds().getFirst());
         }
@@ -95,6 +99,7 @@ public class CatacombsServiceImpl implements CatacombsService {
 
     private void tpPlayers(PlacedMapDto mapDto, List<UUID> playerIds) {
         for (int i = 0; i < playerIds.size(); i++) {
+            minecraftAdapter.setNightVision(playerIds.get(i));
             minecraftAdapter.teleport(mapDto.playerSpawnPlaces().get(i).positionDto(), playerIds.get(i));
         }
     }

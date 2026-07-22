@@ -7,5 +7,7 @@ import java.util.UUID;
 public interface StructuresManager {
     void placeLobbyIfNotExists(PositionDto minigameLocation);
 
+    void tptoLobby(PositionDto minigameLocation, UUID playerId);
+
     void tptoRandomPlaceOnArena(UUID playerId, UUID mapId);
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 @Slf4j
 public class ConcurrentMapCreator implements MapCreator {
-    private static final int MAX_GENERATED_MAPS = 5;
+    private static final int MAX_GENERATED_MAPS = 1;
 
     private final MapService mapService;
 

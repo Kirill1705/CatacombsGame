@@ -30,6 +30,7 @@ public final class CatacombsGame extends JavaPlugin {
 
         FileConfiguration configuration = getConfig();
         String worldName = configuration.getString("world", "catacombs");
+        NamespacedKey deadKey = new NamespacedKey(this, "dead_key");
         createWorldIfNotExists(worldName);
 
         MinigameService minigameService = Bukkit.getServicesManager().getRegistration(MinigameService.class).getProvider();
@@ -37,19 +38,20 @@ public final class CatacombsGame extends JavaPlugin {
         MapService mapService = Bukkit.getServicesManager().getRegistration(MapService.class).getProvider();
         MapEngineService mapEngineService = Bukkit.getServicesManager().getRegistration(MapEngineService.class).getProvider();
 
+        minigameService.addMinigameInfo(new MinigameCreator().create(worldName));
         StructuresManagerConfig config = new StructuresManagerConfig();
         new CommandManager().registerReloadCommand(this, List.of(config));
 
         CatacombsService service = new CatacombsServiceImpl(
             new ServiceAdapterImpl(minigameService, lobbyService, mapEngineService, worldName),
-            new MinecraftAdapterImpl(new MinecraftUtilsImpl(), worldName),
-            new StructuresManagerImpl(config, worldName, mapEngineService),
+            new MinecraftAdapterImpl(new MinecraftUtilsImpl(), worldName, deadKey),
+            new StructuresManagerImpl(config, worldName, mapEngineService, getDataPath()),
             new TimerProviderAdapter(new TimerProviderImpl(this)),
             new ConcurrentMapCreator(mapService),
             new TaskRepositoryAdapter(new TaskStorageImpl())
         );
 
-        CatacombsEventListener listener = new CatacombsEventListener(service);
+        CatacombsEventListener listener = new CatacombsEventListener(service, deadKey);
         getServer().getPluginManager().registerEvents(listener, this);
     }
 

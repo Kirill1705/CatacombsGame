@@ -1,2 +1,3 @@
 world: catacombs
 lobby_path: lobby.nbt
+lobby_spawn: [1, 1, 1]
