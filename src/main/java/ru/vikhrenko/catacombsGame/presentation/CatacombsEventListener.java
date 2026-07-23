@@ -9,6 +9,8 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.example.minigame_service.infrastructure.event.JoinMinigameEvent;
 import org.example.minigame_service.infrastructure.event.MinigameStartEvent;
 import org.example.minigame_service.infrastructure.event.PlayerLeaveMinigameEvent;
@@ -50,6 +52,7 @@ public class CatacombsEventListener implements Listener {
         PersistentDataContainer container = event.getPlayer().getPersistentDataContainer();
         if (container.has(deadKey)) {
             event.getPlayer().setGameMode(GameMode.SPECTATOR);
+            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 1));
             container.remove(deadKey);
         }
     }

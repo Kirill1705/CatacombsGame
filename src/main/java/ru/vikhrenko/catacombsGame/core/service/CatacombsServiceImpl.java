@@ -43,7 +43,7 @@ public class CatacombsServiceImpl implements CatacombsService {
     public void onRemoveEvent(MinigameDto minigame, UUID playerId) {
         removeTask(playerId);
         if (minecraftAdapter.isDead(playerId)) {
-
+            minecraftAdapter.makeObserverAndSetSpawnPoint(playerId);
         }
         else {
             serviceAdapter.wipe(playerId);

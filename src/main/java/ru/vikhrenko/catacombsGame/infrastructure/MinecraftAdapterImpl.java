@@ -68,7 +68,8 @@ public class MinecraftAdapterImpl implements MinecraftAdapter {
     public void makeObserverAndSetSpawnPoint(UUID playerId) {
         Player player = Bukkit.getPlayer(playerId);
         if (player == null) return;
-        player.setRespawnLocation(player.getLocation());
+        Location location = player.getLocation();
+        player.setRespawnLocation(location, true);
         PersistentDataContainer container = player.getPersistentDataContainer();
         container.set(deadKey, PersistentDataType.BOOLEAN, true);
     }
