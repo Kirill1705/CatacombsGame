@@ -2,7 +2,7 @@ package ru.vikhrenko.catacombsGame.infrastructure;
 
 import lombok.Data;
 import thor.usefulUtils.reload.YamlAbstractReloadable;
-import thor.usefulUtils.utils.dataStructures.BlockPosition;
+import thor.usefulUtils.utils.dataStructures.Point;
 import thor.usefulUtils.utils.dataStructures.Point;
 
 import java.nio.file.Path;
@@ -17,7 +17,7 @@ public class StructuresManagerConfig extends YamlAbstractReloadable<StructuresMa
         return Path.of(getOptions().lobbyPath);
     }
 
-    public BlockPosition getLobbySpawn() {
+    public Point getLobbySpawn() {
         return new Point(getOptions().lobbySpawn[0], getOptions().lobbySpawn[1], getOptions().lobbySpawn[2]);
     }
 

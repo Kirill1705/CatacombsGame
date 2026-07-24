@@ -2,7 +2,6 @@ package ru.vikhrenko.catacombsGame.infrastructure;
 
 import lombok.RequiredArgsConstructor;
 import org.example.minigame_service.core.port.dto.MinigameDto;
-import org.example.minigame_service.core.port.dto.PositionDto;
 import org.example.minigame_service.core.port.input.LobbyService;
 import org.example.minigame_service.core.port.input.MinigameService;
 import ru.vikhrenko.catacombsGame.core.port.output.ServiceAdapter;
@@ -10,6 +9,7 @@ import thor.core.port.input.LocationDto;
 import thor.core.port.input.MapEngineService;
 import thor.core.port.input.MapPlaceOptions;
 import thor.core.port.mapping.dto.map.PlacedMapDto;
+import thor.usefulUtils.utils.dataStructures.Point;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -22,9 +22,9 @@ public class ServiceAdapterImpl implements ServiceAdapter {
     private final String worldName;
 
     @Override
-    public PlacedMapDto placeMap(PositionDto location, UUID mapId) {
+    public PlacedMapDto placeMap(Point location, UUID mapId) {
         MapPlaceOptions options = new MapPlaceOptions();
-        return mapService.placeMap(new LocationDto(worldName, location.x(), location.y(), location.z()), mapId, options);
+        return mapService.placeMap(location, worldName, mapId, options);
     }
 
     @Override

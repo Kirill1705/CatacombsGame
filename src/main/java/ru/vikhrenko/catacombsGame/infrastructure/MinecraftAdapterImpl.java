@@ -14,7 +14,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.example.minigame_service.core.port.dto.ScoreboardData;
 import org.example.minigame_service.core.port.output.MinecraftUtils;
 import ru.vikhrenko.catacombsGame.core.port.output.MinecraftAdapter;
-import thor.core.port.mapping.dto.PositionDto;
+import thor.usefulUtils.utils.dataStructures.Point;
 
 import java.time.Duration;
 import java.util.List;
@@ -28,10 +28,10 @@ public class MinecraftAdapterImpl implements MinecraftAdapter {
     private final NamespacedKey deadKey;
 
     @Override
-    public void teleport(PositionDto locationDto, UUID playerId) {
+    public void teleport(Point position, UUID playerId) {
         Player player = Bukkit.getPlayer(playerId);
         if (player == null) return;
-        player.teleport(new Location(Bukkit.getWorld(worldName), locationDto.x(), locationDto.y(), locationDto.z()));
+        player.teleport(new Location(Bukkit.getWorld(worldName), position.x(), position.y(), position.z()));
     }
 
     @Override

@@ -1,13 +1,13 @@
 package ru.vikhrenko.catacombsGame.core.port.output;
 
-import thor.core.port.mapping.dto.PositionDto;
+import thor.usefulUtils.utils.dataStructures.Point;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.UUID;
 
 public interface MinecraftAdapter {
-    void teleport(PositionDto locationDto, UUID playerId);
+    void teleport(Point position, UUID playerId);
 
     void titleGameResult(UUID playerId, int place);
 
