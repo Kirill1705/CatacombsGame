@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.minigame_service.core.port.dto.MinigameDto;
 import ru.vikhrenko.catacombsGame.core.port.input.CatacombsService;
 import ru.vikhrenko.catacombsGame.core.port.output.*;
-import thor.core.port.mapping.dto.PositionDto;
 import thor.core.port.mapping.dto.map.PlacedMapDto;
 
 import java.time.Duration;
@@ -25,8 +24,8 @@ public class CatacombsServiceImpl implements CatacombsService {
 
     @Override
     public void joinPlayerEvent(MinigameDto minigameDto, UUID playerId) {
-        structuresManager.placeLobbyIfNotExists(minigameDto.positionDto());
-        structuresManager.tptoLobby(minigameDto.positionDto(), playerId);
+        structuresManager.placeLobbyIfNotExists(minigameDto.position());
+        structuresManager.tptoLobby(minigameDto.position(), playerId);
     }
 
     @Override
@@ -59,7 +58,7 @@ public class CatacombsServiceImpl implements CatacombsService {
     @Override
     public void startGame(MinigameDto minigame) {
         UUID mapId = mapCreator.createNewMap();
-        PlacedMapDto mapDto = serviceAdapter.placeMap(minigame.positionDto(), mapId);
+        PlacedMapDto mapDto = serviceAdapter.placeMap(minigame.position(), mapId);
         tpPlayers(mapDto, minigame.playerIds());
         startTimer(minigame, mapDto.id());
     }
