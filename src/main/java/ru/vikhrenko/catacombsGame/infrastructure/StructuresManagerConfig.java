@@ -1,9 +1,9 @@
 package ru.vikhrenko.catacombsGame.infrastructure;
 
 import lombok.Data;
-import thor.usefulUtils.reload.YamlAbstractReloadable;
-import thor.usefulUtils.utils.dataStructures.Point;
-import thor.usefulUtils.utils.dataStructures.Point;
+import ru.vikhrenko.serverUtils.reload.YamlAbstractReloadable;
+import ru.vikhrenko.serverUtils.utils.dataStructures.Point;
+import ru.vikhrenko.serverUtils.utils.dataStructures.Point;
 
 import java.nio.file.Path;
 

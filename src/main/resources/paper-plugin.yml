@@ -12,3 +12,7 @@ dependencies:
     MinigameService:
       required: true
       load: BEFORE
+
+    ServerUtils:
+      required: true
+      load: BEFORE

@@ -1,6 +1,6 @@
 package ru.vikhrenko.catacombsGame.core.port.output;
 
-import thor.usefulUtils.utils.dataStructures.Point;
+import ru.vikhrenko.serverUtils.utils.dataStructures.Point;
 
 import java.time.Duration;
 import java.util.List;

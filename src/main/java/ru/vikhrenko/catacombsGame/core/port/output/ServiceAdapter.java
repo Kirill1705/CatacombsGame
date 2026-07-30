@@ -2,7 +2,7 @@ package ru.vikhrenko.catacombsGame.core.port.output;
 
 import org.example.minigame_service.core.port.dto.MinigameDto;
 import thor.core.port.mapping.dto.map.PlacedMapDto;
-import thor.usefulUtils.utils.dataStructures.Point;
+import ru.vikhrenko.serverUtils.utils.dataStructures.Point;
 
 import java.util.Optional;
 import java.util.UUID;
