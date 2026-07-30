@@ -16,7 +16,7 @@ import ru.vikhrenko.catacombsGame.infrastructure.repositories.TaskRepositoryAdap
 import ru.vikhrenko.catacombsGame.presentation.CatacombsEventListener;
 import thor.core.port.input.MapEngineService;
 import thor.core.port.input.MapService;
-import thor.usefulUtils.reload.CommandManager;
+import ru.vikhrenko.serverUtils.reload.CommandManager;
 
 import java.util.List;
 

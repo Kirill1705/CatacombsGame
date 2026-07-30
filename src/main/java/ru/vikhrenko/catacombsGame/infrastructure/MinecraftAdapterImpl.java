@@ -14,7 +14,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.example.minigame_service.core.port.dto.ScoreboardData;
 import org.example.minigame_service.core.port.output.MinecraftUtils;
 import ru.vikhrenko.catacombsGame.core.port.output.MinecraftAdapter;
-import thor.usefulUtils.utils.dataStructures.Point;
+import ru.vikhrenko.serverUtils.utils.dataStructures.Point;
 
 import java.time.Duration;
 import java.util.List;

@@ -6,10 +6,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.structure.Structure;
 import ru.vikhrenko.catacombsGame.core.port.output.StructuresManager;
 import thor.core.port.input.MapEngineService;
-import thor.usefulUtils.exception.EntityNotFoundException;
-import thor.usefulUtils.utils.StructureUtils;
-import thor.usefulUtils.utils.dataStructures.Point;
-import thor.usefulUtils.utils.dataStructures.Points;
+import ru.vikhrenko.serverUtils.exception.EntityNotFoundException;
+import ru.vikhrenko.serverUtils.utils.StructureUtils;
+import ru.vikhrenko.serverUtils.utils.dataStructures.Point;
+import ru.vikhrenko.serverUtils.utils.dataStructures.Points;
 
 import java.io.IOException;
 import java.nio.file.Path;

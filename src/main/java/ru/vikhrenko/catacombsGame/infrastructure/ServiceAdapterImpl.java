@@ -5,11 +5,10 @@ import org.example.minigame_service.core.port.dto.MinigameDto;
 import org.example.minigame_service.core.port.input.LobbyService;
 import org.example.minigame_service.core.port.input.MinigameService;
 import ru.vikhrenko.catacombsGame.core.port.output.ServiceAdapter;
-import thor.core.port.input.LocationDto;
 import thor.core.port.input.MapEngineService;
-import thor.core.port.input.MapPlaceOptions;
+import thor.core.port.mapping.MapPlaceOptions;
 import thor.core.port.mapping.dto.map.PlacedMapDto;
-import thor.usefulUtils.utils.dataStructures.Point;
+import ru.vikhrenko.serverUtils.utils.dataStructures.Point;
 
 import java.util.Optional;
 import java.util.UUID;
